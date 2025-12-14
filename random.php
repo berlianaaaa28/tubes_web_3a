@@ -14,4 +14,4 @@ $meal = $data['recipes'][0];
 <h3>Instruksi:</h3>
 <p><?= $meal['instructions'] ?></p>
 
-<a href="random.php">Dapatkan Resep Acak Lagi 🔄</a>
+<a href="random.php">Dapatkan Resep Acak Lagi 🔄</a> 
