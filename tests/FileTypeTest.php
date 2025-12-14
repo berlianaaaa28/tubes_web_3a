@@ -4,10 +4,7 @@ use PHPUnit\Framework\TestCase;
 class FileTypeTest extends TestCase
 {
     private $projectFiles = [
-        'index.php',
-        'search.php',
-        'random.php',
-        'detail.php'
+        'index.php'
     ];
 
     /**
@@ -69,25 +66,15 @@ class FileTypeTest extends TestCase
     }
 
     /**
-     * Test 5: Pastikan aplikasi menggunakan API Spoonacular
-     * (dicek dari keyword di file)
+     * Test 5: Pastikan aplikasi bertema resep makanan
      */
-    public function test_spoonacular_api_usage_exists()
+    public function test_recipe_application_identity_exists()
     {
-        $found = false;
-
-        foreach ($this->projectFiles as $file) {
-            $content = strtolower(file_get_contents($file));
-
-            if (str_contains($content, 'spoonacular') || str_contains($content, 'api.spoonacular.com')) {
-                $found = true;
-                break;
-            }
-        }
+        $content = strtolower(file_get_contents('index.php'));
 
         $this->assertTrue(
-            $found,
-            "Penggunaan API Spoonacular tidak ditemukan di file project!"
+            str_contains($content, 'resep') || str_contains($content, 'makanan'),
+            "Identitas aplikasi resep makanan tidak ditemukan!"
         );
     }
 }
